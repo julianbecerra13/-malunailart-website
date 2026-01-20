@@ -58,7 +58,11 @@ export default function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                className={`transition-colors font-medium ${
+                  isScrolled
+                    ? "text-foreground/80 hover:text-primary"
+                    : "text-white/90 hover:text-white"
+                }`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -84,9 +88,9 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
+              <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             ) : (
-              <Menu className="h-6 w-6 text-foreground" />
+              <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-white"}`} />
             )}
           </button>
         </div>
@@ -98,9 +102,11 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden overflow-hidden"
+              className={`md:hidden overflow-hidden ${
+                !isScrolled ? "bg-white/95 backdrop-blur-md rounded-lg mt-2" : ""
+              }`}
             >
-              <div className="py-4 flex flex-col gap-4">
+              <div className="py-4 px-4 flex flex-col gap-4">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
