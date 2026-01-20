@@ -2,12 +2,13 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Clock, Mail, Calendar } from "lucide-react";
+import { Phone, Clock, Mail, Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = {
   phone: "06 54149732",
   email: "Malunailart@gmail.com",
+  address: "Zandzuigerstraat 114, 1333 HD Almere",
   hours: [
     { day: "Maandag - Vrijdag", time: "10:00 - 18:00" },
     { day: "Zaterdag", time: "10:00 - 16:00" },
@@ -43,7 +44,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"
           >
             <Card className="border-none shadow-lg bg-gradient-to-br from-white to-rose-light/20">
               <CardContent className="p-6 flex flex-col items-center text-center gap-4">
@@ -78,6 +79,27 @@ export default function Contact() {
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {contactInfo.email}
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-lg bg-gradient-to-br from-white to-rose-light/20">
+              <CardContent className="p-6 flex flex-col items-center text-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <MapPin className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-lg text-foreground mb-1">
+                    Adres
+                  </h3>
+                  <a
+                    href="https://maps.google.com/?q=Zandzuigerstraat+114+1333+HD+Almere"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
+                    {contactInfo.address}
                   </a>
                 </div>
               </CardContent>
