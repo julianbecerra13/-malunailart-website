@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://malunailart.nl"),
+  metadataBase: new URL("https://www.malunailart.nl"),
   title: {
     default: "Malu Nail Art | Professionele Nagelstyliste",
     template: "%s | Malu Nail Art",
@@ -48,25 +48,16 @@ export const metadata: Metadata = {
     title: "Malu Nail Art | Professionele Nagelstyliste",
     description:
       "Professionele nagelbehandelingen: manicure, pedicure, gellak, acryl nagels en creatieve nail art. Boek nu online!",
-    url: "https://malunailart.nl",
+    url: "https://www.malunailart.nl",
     siteName: "Malu Nail Art",
     type: "website",
     locale: "nl_NL",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Malu Nail Art - Professionele Nagelstyliste",
-      },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Malu Nail Art | Professionele Nagelstyliste",
     description:
       "Professionele nagelbehandelingen: manicure, pedicure, gellak, acryl nagels en creatieve nail art.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -79,11 +70,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "google-site-verification-code",
-  },
   alternates: {
-    canonical: "https://malunailart.nl",
+    canonical: "/",
   },
 };
 
@@ -95,8 +83,6 @@ export default function RootLayout({
   return (
     <html lang="nl">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="theme-color" content="#e91e8c" />
       </head>
       <body
