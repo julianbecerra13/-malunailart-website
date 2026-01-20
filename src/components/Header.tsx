@@ -58,10 +58,10 @@ export default function Header() {
               <motion.a
                 key={item.name}
                 href={item.href}
-                className={`transition-colors font-medium ${
+                className={`transition-colors font-semibold ${
                   isScrolled
                     ? "text-foreground/80 hover:text-primary"
-                    : "text-white/90 hover:text-white"
+                    : "text-white hover:text-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                 }`}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
