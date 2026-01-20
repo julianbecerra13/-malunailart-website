@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -35,15 +36,20 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <nav className="container mx-auto px-4 py-4">
+      <nav className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           <motion.a
             href="#home"
-            className="text-2xl font-bold text-primary"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Malu Nail Art
+            <Image
+              src="/images/logo.jpeg"
+              alt="Malu Nail Art"
+              width={60}
+              height={60}
+              className="rounded-full"
+            />
           </motion.a>
 
           {/* Desktop Navigation */}

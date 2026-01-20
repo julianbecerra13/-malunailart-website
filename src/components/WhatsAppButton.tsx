@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
-// Placeholder phone number - will be updated
-const whatsappNumber = "31XXXXXXXXX";
+const whatsappNumber = "31654149732";
 const whatsappMessage = "Hallo! Ik wil graag een afspraak maken.";
 
 export default function WhatsAppButton() {

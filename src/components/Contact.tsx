@@ -2,14 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Phone, Clock, Mail, Calendar } from "lucide-react";
+import { Phone, Clock, Mail, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-// Placeholder data - will be updated with real info
 const contactInfo = {
-  address: "Adres wordt toegevoegd",
-  phone: "+31 XX XXX XXXX",
-  email: "info@nailsstudio.nl",
+  phone: "06 54149732",
+  email: "Malunailart@gmail.com",
   hours: [
     { day: "Maandag - Vrijdag", time: "09:00 - 18:00" },
     { day: "Zaterdag", time: "10:00 - 16:00" },
@@ -45,54 +43,50 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
           >
             <Card className="border-none shadow-lg bg-gradient-to-br from-white to-rose-light/20">
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-lg text-foreground mb-1">
-                    Adres
-                  </h3>
-                  <p className="text-muted-foreground">{contactInfo.address}</p>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-none shadow-lg bg-gradient-to-br from-white to-rose-light/20">
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-6 h-6 text-primary" />
+              <CardContent className="p-6 flex flex-col items-center text-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Phone className="w-7 h-7 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-foreground mb-1">
                     Telefoon
                   </h3>
-                  <p className="text-muted-foreground">{contactInfo.phone}</p>
+                  <a
+                    href="tel:+31654149732"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {contactInfo.phone}
+                  </a>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="border-none shadow-lg bg-gradient-to-br from-white to-rose-light/20">
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-6 h-6 text-primary" />
+              <CardContent className="p-6 flex flex-col items-center text-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Mail className="w-7 h-7 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-foreground mb-1">
                     E-mail
                   </h3>
-                  <p className="text-muted-foreground">{contactInfo.email}</p>
+                  <a
+                    href="mailto:Malunailart@gmail.com"
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {contactInfo.email}
+                  </a>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="border-none shadow-lg bg-gradient-to-br from-white to-rose-light/20">
-              <CardContent className="p-6 flex items-start gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-6 h-6 text-primary" />
+              <CardContent className="p-6 flex flex-col items-center text-center gap-4">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
+                  <Clock className="w-7 h-7 text-primary" />
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg text-foreground mb-2">
@@ -102,10 +96,10 @@ export default function Contact() {
                     {contactInfo.hours.map((item, index) => (
                       <div
                         key={index}
-                        className="flex justify-between text-muted-foreground text-sm"
+                        className="text-muted-foreground text-sm"
                       >
-                        <span>{item.day}</span>
-                        <span className="font-medium ml-4">{item.time}</span>
+                        <span>{item.day}:</span>{" "}
+                        <span className="font-medium">{item.time}</span>
                       </div>
                     ))}
                   </div>

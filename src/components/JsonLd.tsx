@@ -4,15 +4,24 @@ export default function JsonLd() {
     "@type": "BeautySalon",
     name: "Malu Nail Art",
     url: "https://www.malunailart.nl",
-    // TODO: Add real data when available
-    // telephone: "+31 XX XXX XXXX",
-    // address: {
-    //   "@type": "PostalAddress",
-    //   streetAddress: "...",
-    //   addressLocality: "...",
-    //   postalCode: "...",
-    //   addressCountry: "NL",
-    // },
+    telephone: "+31654149732",
+    email: "Malunailart@gmail.com",
+    image: "https://www.malunailart.nl/images/logo.jpeg",
+    priceRange: "$$",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "09:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Saturday",
+        opens: "10:00",
+        closes: "16:00",
+      },
+    ],
   };
 
   return (

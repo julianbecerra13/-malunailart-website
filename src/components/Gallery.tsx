@@ -5,15 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X } from "lucide-react";
 
-// Placeholder images - will be replaced with actual images
-const galleryImages = [
-  { id: 1, src: "/images/nail-1.jpg", alt: "Nail design 1" },
-  { id: 2, src: "/images/nail-2.jpg", alt: "Nail design 2" },
-  { id: 3, src: "/images/nail-3.jpg", alt: "Nail design 3" },
-  { id: 4, src: "/images/nail-4.jpg", alt: "Nail design 4" },
-  { id: 5, src: "/images/nail-5.jpg", alt: "Nail design 5" },
-  { id: 6, src: "/images/nail-6.jpg", alt: "Nail design 6" },
-];
+const galleryImages = Array.from({ length: 41 }, (_, i) => ({
+  id: i + 1,
+  src: `/images/gallery/nail-${i + 1}.jpeg`,
+  alt: `Nail design ${i + 1}`,
+}));
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -43,7 +39,7 @@ export default function Gallery() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-3 gap-4"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
           {galleryImages.map((image, index) => (
             <motion.div
@@ -51,21 +47,18 @@ export default function Gallery() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               className="relative aspect-square overflow-hidden rounded-2xl cursor-pointer group"
               onClick={() => setSelectedImage(image.src)}
             >
-              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors z-10" />
-              <div className="w-full h-full bg-gradient-to-br from-rose-light to-gold-light flex items-center justify-center">
-                <span className="text-primary/50 text-sm">Foto {image.id}</span>
-              </div>
-              {/* Uncomment when images are added */}
-              {/* <Image
+              <Image
                 src={image.src}
                 alt={image.alt}
                 fill
                 className="object-cover group-hover:scale-110 transition-transform duration-500"
-              /> */}
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors z-10" />
             </motion.div>
           ))}
         </motion.div>
@@ -91,17 +84,15 @@ export default function Gallery() {
                 animate={{ scale: 1 }}
                 exit={{ scale: 0.8 }}
                 className="relative max-w-4xl max-h-[80vh] w-full h-full"
+                onClick={(e) => e.stopPropagation()}
               >
-                <div className="w-full h-full bg-gradient-to-br from-rose-light to-gold-light rounded-lg flex items-center justify-center">
-                  <span className="text-primary">Afbeelding wordt geladen...</span>
-                </div>
-                {/* Uncomment when images are added */}
-                {/* <Image
+                <Image
                   src={selectedImage}
                   alt="Selected nail design"
                   fill
                   className="object-contain"
-                /> */}
+                  sizes="100vw"
+                />
               </motion.div>
             </motion.div>
           )}

@@ -52,12 +52,21 @@ export const metadata: Metadata = {
     siteName: "Malu Nail Art",
     type: "website",
     locale: "nl_NL",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 512,
+        height: 512,
+        alt: "Malu Nail Art Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary",
     title: "Malu Nail Art | Professionele Nagelstyliste",
     description:
       "Professionele nagelbehandelingen: manicure, pedicure, gellak, acryl nagels en creatieve nail art.",
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
