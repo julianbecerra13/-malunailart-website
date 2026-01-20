@@ -9,7 +9,7 @@ const contactInfo = {
   phone: "06 54149732",
   email: "Malunailart@gmail.com",
   hours: [
-    { day: "Maandag - Vrijdag", time: "09:00 - 18:00" },
+    { day: "Maandag - Vrijdag", time: "10:00 - 18:00" },
     { day: "Zaterdag", time: "10:00 - 16:00" },
     { day: "Zondag", time: "Gesloten" },
   ],
