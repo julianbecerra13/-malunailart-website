@@ -19,7 +19,7 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-2xl font-bold text-primary mb-4">
-              Nails Studio
+              Malu Nail Art
             </h3>
             <p className="text-white/70">
               Professionele nagelbehandelingen met passie en precisie. Uw mooie
@@ -108,7 +108,7 @@ export default function Footer() {
           className="text-center text-white/60 space-y-2"
         >
           <p className="flex items-center justify-center gap-1">
-            &copy; {currentYear} Nails Studio. Gemaakt met{" "}
+            &copy; {currentYear} Malu Nail Art. Gemaakt met{" "}
             <Heart className="w-4 h-4 text-primary fill-primary" /> in
             Nederland.
           </p>

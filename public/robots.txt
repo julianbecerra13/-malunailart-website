@@ -1,0 +1,6 @@
+# Robots.txt for Malu Nail Art
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://malunailart.nl/sitemap.xml

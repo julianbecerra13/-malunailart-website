@@ -13,24 +13,77 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nails Studio | Professionele Nagelbehandelingen",
+  metadataBase: new URL("https://malunailart.nl"),
+  title: {
+    default: "Malu Nail Art | Professionele Nagelstyliste",
+    template: "%s | Malu Nail Art",
+  },
   description:
-    "Welkom bij Nails Studio - Uw specialist voor manicure, pedicure, gellak, acryl nagels en nail art. Professionele nagelbehandelingen in een ontspannen sfeer.",
+    "Malu Nail Art - Uw specialist voor manicure, pedicure, gellak, acryl nagels en creatieve nail art. Professionele nagelbehandelingen met oog voor detail en kwaliteit. Boek nu online!",
   keywords: [
     "nagelsalon",
+    "nagelstyliste",
     "manicure",
     "pedicure",
     "gellak",
     "nail art",
     "acryl nagels",
     "nagelverzorging",
+    "gelnagels",
+    "nagelverlenging",
+    "nagelstudio",
+    "malu nail art",
+    "nederland",
+    "nagelbehandeling",
   ],
+  authors: [{ name: "Malu Nail Art" }],
+  creator: "Malu Nail Art",
+  publisher: "Malu Nail Art",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   openGraph: {
-    title: "Nails Studio | Professionele Nagelbehandelingen",
+    title: "Malu Nail Art | Professionele Nagelstyliste",
     description:
-      "Welkom bij Nails Studio - Uw specialist voor manicure, pedicure, gellak, acryl nagels en nail art.",
+      "Professionele nagelbehandelingen: manicure, pedicure, gellak, acryl nagels en creatieve nail art. Boek nu online!",
+    url: "https://malunailart.nl",
+    siteName: "Malu Nail Art",
     type: "website",
     locale: "nl_NL",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Malu Nail Art - Professionele Nagelstyliste",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Malu Nail Art | Professionele Nagelstyliste",
+    description:
+      "Professionele nagelbehandelingen: manicure, pedicure, gellak, acryl nagels en creatieve nail art.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "google-site-verification-code",
+  },
+  alternates: {
+    canonical: "https://malunailart.nl",
   },
 };
 
@@ -41,6 +94,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="theme-color" content="#e91e8c" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
