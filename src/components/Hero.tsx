@@ -61,12 +61,12 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.span
-              className="inline-flex items-center gap-2 bg-primary/30 backdrop-blur-md px-5 py-2.5 rounded-full text-primary font-semibold mb-8 border border-primary/50"
+              className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md px-5 py-2.5 rounded-full text-primary font-semibold mb-8 border border-primary"
               animate={{
                 scale: [1, 1.08, 1],
                 boxShadow: [
                   "0 0 0px rgba(244,114,182,0)",
-                  "0 0 30px rgba(244,114,182,0.6)",
+                  "0 0 35px rgba(244,114,182,0.7)",
                   "0 0 0px rgba(244,114,182,0)",
                 ],
               }}
@@ -75,7 +75,7 @@ export default function Hero() {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              whileHover={{ scale: 1.1, backgroundColor: "rgba(244,114,182,0.4)" }}
+              whileHover={{ scale: 1.1, boxShadow: "0 0 40px rgba(244,114,182,0.8)" }}
             >
               <Sparkles className="w-4 h-4" />
               Welkom bij Malu Nail Art
