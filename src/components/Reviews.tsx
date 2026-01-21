@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -112,9 +113,28 @@ export default function Reviews() {
     ));
   };
 
+  // Posiciones para logos decorativos
+  const logoPositions = [
+    { left: 3, top: 8 }, { left: 94, top: 12 }, { left: 6, top: 88 },
+    { left: 91, top: 85 }, { left: 50, top: 2 }, { left: 96, top: 50 },
+  ];
+
   return (
-    <section className="py-20 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-20 relative overflow-hidden bg-gradient-to-br from-rose-light/30 via-white to-gold-light/20">
+      {/* Logos decorativos */}
+      {logoPositions.map((pos, i) => (
+        <motion.div
+          key={i}
+          className="absolute opacity-[0.05] pointer-events-none"
+          style={{ left: `${pos.left}%`, top: `${pos.top}%` }}
+          animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 12, repeat: Infinity, delay: i * 0.8 }}
+        >
+          <Image src="/images/logo.jpeg" alt="" width={60} height={60} className="rounded-full" />
+        </motion.div>
+      ))}
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,6 +142,20 @@ export default function Reviews() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <Image
+              src="/images/logo.jpeg"
+              alt="Malu Nail Art"
+              width={90}
+              height={90}
+              className="rounded-full shadow-xl mx-auto"
+            />
+          </motion.div>
           <span className="text-primary font-medium">Wat klanten zeggen</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-4">
             Recensies

@@ -17,10 +17,29 @@ const contactInfo = {
   ],
 };
 
+// Posiciones para logos decorativos
+const logoPositions = [
+  { left: 4, top: 10 }, { left: 93, top: 8 }, { left: 7, top: 90 },
+  { left: 90, top: 88 }, { left: 2, top: 50 }, { left: 96, top: 55 },
+];
+
 export default function Contact() {
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-rose-light/30 to-white">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-20 relative overflow-hidden bg-gradient-to-br from-gold-light/30 via-cream to-rose-light/40">
+      {/* Logos decorativos */}
+      {logoPositions.map((pos, i) => (
+        <motion.div
+          key={i}
+          className="absolute opacity-[0.06] pointer-events-none"
+          style={{ left: `${pos.left}%`, top: `${pos.top}%` }}
+          animate={{ rotate: [0, 8, -8, 0], scale: [1, 1.05, 1] }}
+          transition={{ duration: 10, repeat: Infinity, delay: i * 0.6 }}
+        >
+          <Image src="/images/logo.jpeg" alt="" width={65} height={65} className="rounded-full" />
+        </motion.div>
+      ))}
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +72,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           {/* Contact Info Cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

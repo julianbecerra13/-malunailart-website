@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Sparkles, Palette, Heart, Star, Gem, Flower2, Calendar, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
@@ -65,10 +66,39 @@ const itemVariants = {
   },
 };
 
+// Posiciones fijas para los logos decorativos
+const logoPositions = [
+  { left: 5, top: 10 }, { left: 90, top: 15 }, { left: 15, top: 85 },
+  { left: 80, top: 80 }, { left: 50, top: 5 }, { left: 95, top: 50 },
+  { left: 3, top: 50 }, { left: 70, top: 90 }, { left: 30, top: 92 },
+];
+
 export default function Services() {
   return (
-    <section id="diensten" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="diensten" className="py-20 relative overflow-hidden bg-gradient-to-br from-rose-light/40 via-white to-gold-light/30">
+      {/* Logos decorativos de fondo */}
+      {logoPositions.map((pos, i) => (
+        <motion.div
+          key={i}
+          className="absolute opacity-[0.07] pointer-events-none"
+          style={{ left: `${pos.left}%`, top: `${pos.top}%` }}
+          animate={{
+            rotate: [0, 10, -10, 0],
+            scale: [1, 1.1, 1],
+          }}
+          transition={{ duration: 8, repeat: Infinity, delay: i * 0.5 }}
+        >
+          <Image
+            src="/images/logo.jpeg"
+            alt=""
+            width={80}
+            height={80}
+            className="rounded-full"
+          />
+        </motion.div>
+      ))}
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -76,6 +106,20 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <Image
+              src="/images/logo.jpeg"
+              alt="Malu Nail Art"
+              width={90}
+              height={90}
+              className="rounded-full shadow-xl mx-auto"
+            />
+          </motion.div>
           <span className="text-primary font-medium">Wat wij bieden</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-4">
             Onze Diensten

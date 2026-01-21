@@ -11,12 +11,32 @@ const galleryImages = Array.from({ length: 41 }, (_, i) => ({
   alt: `Nail design ${i + 1}`,
 }));
 
+// Posiciones para logos decorativos
+const logoPositions = [
+  { left: 2, top: 5 }, { left: 95, top: 8 }, { left: 8, top: 95 },
+  { left: 92, top: 92 }, { left: 48, top: 3 }, { left: 97, top: 45 },
+  { left: 1, top: 45 },
+];
+
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="galerij" className="py-20 bg-gradient-to-b from-white to-rose-light/30">
-      <div className="container mx-auto px-4">
+    <section id="galerij" className="py-20 relative overflow-hidden bg-gradient-to-br from-gold-light/20 via-cream to-rose-light/30">
+      {/* Logos decorativos */}
+      {logoPositions.map((pos, i) => (
+        <motion.div
+          key={i}
+          className="absolute opacity-[0.06] pointer-events-none"
+          style={{ left: `${pos.left}%`, top: `${pos.top}%` }}
+          animate={{ rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 10, repeat: Infinity, delay: i * 0.7 }}
+        >
+          <Image src="/images/logo.jpeg" alt="" width={70} height={70} className="rounded-full" />
+        </motion.div>
+      ))}
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,6 +44,20 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="mb-6"
+          >
+            <Image
+              src="/images/logo.jpeg"
+              alt="Malu Nail Art"
+              width={90}
+              height={90}
+              className="rounded-full shadow-xl mx-auto"
+            />
+          </motion.div>
           <span className="text-primary font-medium">Ons Werk</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-4">
             Galerij

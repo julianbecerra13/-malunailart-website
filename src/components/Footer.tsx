@@ -3,13 +3,32 @@
 import { motion } from "framer-motion";
 import { Heart, Instagram, Facebook } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="bg-gradient-to-br from-foreground via-foreground to-rose-dark/90 text-white py-12 relative overflow-hidden">
+      {/* Logos decorativos de fondo */}
+      <div className="absolute inset-0 opacity-[0.03]">
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{
+              left: `${15 + i * 15}%`,
+              top: `${10 + (i % 3) * 30}%`,
+            }}
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+          >
+            <Image src="/images/logo.jpeg" alt="" width={50} height={50} className="rounded-full" />
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <motion.div
@@ -18,9 +37,18 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-2xl font-bold text-primary mb-4">
-              Malu Nail Art
-            </h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/images/logo.jpeg"
+                alt="Malu Nail Art"
+                width={50}
+                height={50}
+                className="rounded-full"
+              />
+              <h3 className="text-2xl font-bold text-primary">
+                Malu Nail Art
+              </h3>
+            </div>
             <p className="text-white/70">
               Professionele nagelbehandelingen met passie en precisie. Uw mooie
               nagels zijn onze prioriteit.
