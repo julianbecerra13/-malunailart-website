@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Clock, Mail, Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const contactInfo = {
   phone: "06 54149732",
@@ -27,6 +28,21 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
+          >
+            <Image
+              src="/images/logo.jpeg"
+              alt="Malu Nail Art"
+              width={100}
+              height={100}
+              className="rounded-full shadow-xl mx-auto"
+            />
+          </motion.div>
           <span className="text-primary font-medium">Neem Contact Op</span>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mt-2 mb-4">
             Contact
