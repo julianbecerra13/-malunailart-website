@@ -62,6 +62,19 @@ export default function Hero() {
           >
             <motion.span
               className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-5 py-2.5 rounded-full text-white font-medium mb-8 border border-white/30"
+              animate={{
+                scale: [1, 1.03, 1],
+                boxShadow: [
+                  "0 0 0px rgba(255,255,255,0)",
+                  "0 0 20px rgba(255,255,255,0.3)",
+                  "0 0 0px rgba(255,255,255,0)",
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.3)" }}
             >
               <Sparkles className="w-4 h-4" />
