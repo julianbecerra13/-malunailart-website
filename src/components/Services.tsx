@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Palette, Heart, Star, Gem, Flower2, Calendar, ExternalLink } from "lucide-react";
+import { Sparkles, Palette, Heart, Star, Gem, Flower2, Calendar, ExternalLink, GraduationCap, Award, BookOpen, CheckCircle2, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
 const services = [
@@ -191,6 +191,130 @@ export default function Services() {
                 <ExternalLink className="w-4 h-4" />
               </motion.a>
             </Button>
+          </div>
+        </motion.div>
+
+        {/* Sección de Cursos */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-20"
+          id="cursussen"
+        >
+          <div className="bg-gradient-to-br from-foreground via-foreground to-rose-dark/80 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="grid md:grid-cols-2 gap-0">
+              {/* Imagen del certificado */}
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="relative h-64 md:h-auto min-h-[400px]"
+              >
+                <Image
+                  src="/images/certificate.jpg"
+                  alt="Certificaat Nagelstyliste"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-foreground/50 md:bg-gradient-to-r md:from-transparent md:to-foreground" />
+
+                {/* Badge flotante */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
+                  className="absolute top-6 left-6 bg-primary text-white px-4 py-2 rounded-full flex items-center gap-2 shadow-lg"
+                >
+                  <Award className="w-5 h-5" />
+                  <span className="font-semibold text-sm">Gecertificeerd</span>
+                </motion.div>
+              </motion.div>
+
+              {/* Contenido */}
+              <div className="p-8 md:p-12 flex flex-col justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
+                      <GraduationCap className="w-6 h-6 text-primary" />
+                    </div>
+                    <span className="text-primary font-medium">Opleidingen</span>
+                  </div>
+
+                  <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Leer Nagels van Beginner tot Gevorderd!
+                  </h3>
+
+                  <p className="text-white/80 mb-6 leading-relaxed">
+                    Ben je gepassioneerd door de wereld van manicure? In onze cursussen begeleiden we je stap voor stap van de basis tot geavanceerde technieken, met een complete en kwalitatieve opleiding.
+                  </p>
+
+                  {/* Características */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                    {[
+                      { icon: BookOpen, text: "Van basis tot expert" },
+                      { icon: Award, text: "Officieel certificaat" },
+                      { icon: CheckCircle2, text: "Praktijkgerichte lessen" },
+                      { icon: Heart, text: "Kleine groepen" },
+                    ].map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 + index * 0.1 }}
+                        className="flex items-center gap-2 text-white/90"
+                      >
+                        <item.icon className="w-5 h-5 text-primary flex-shrink-0" />
+                        <span className="text-sm">{item.text}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-primary hover:bg-rose-dark text-white px-6 py-6 text-base gap-2"
+                    >
+                      <motion.a
+                        href="https://wa.me/31654149732?text=Hallo!%20Ik%20wil%20graag%20meer%20informatie%20over%20de%20nagelcursussen."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                      >
+                        <MessageCircle className="w-5 h-5" />
+                        Meer Informatie
+                      </motion.a>
+                    </Button>
+                    <Button
+                      asChild
+                      size="lg"
+                      variant="outline"
+                      className="border-white/30 text-white hover:bg-white/10 px-6 py-6 text-base gap-2"
+                    >
+                      <motion.a
+                        href="tel:+31654149732"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                      >
+                        Bel Ons
+                      </motion.a>
+                    </Button>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
