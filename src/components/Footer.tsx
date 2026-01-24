@@ -134,16 +134,33 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center text-white/60 space-y-2"
+          className="text-white/60"
         >
-          <p className="flex items-center justify-center gap-1">
-            &copy; {currentYear} Malu Nail Art. Gemaakt met{" "}
-            <Heart className="w-4 h-4 text-primary fill-primary" /> in
-            Nederland.
-          </p>
-          <p className="text-sm">
-            KVK: 64984931 | BTW: NL 002515904B35
-          </p>
+          <div className="flex flex-col gap-6 mb-20 md:mb-0">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-sm">
+                <span>KVK: 64984931</span>
+                <span className="hidden sm:inline">|</span>
+                <span>BTW: NL 002515904B35</span>
+              </div>
+              <div className="flex items-center gap-6">
+                <a href="#diensten" className="text-white/60 hover:text-primary text-sm transition-colors">
+                  Diensten
+                </a>
+                <a href="#galerij" className="text-white/60 hover:text-primary text-sm transition-colors">
+                  Galerij
+                </a>
+                <a href="#contact" className="text-white/60 hover:text-primary text-sm transition-colors">
+                  Contact
+                </a>
+              </div>
+            </div>
+            <p className="flex items-center justify-center gap-1 text-xs">
+              &copy; {currentYear} Malu Nail Art. Gemaakt met{" "}
+              <Heart className="w-4 h-4 text-primary fill-primary" /> in
+              Nederland.
+            </p>
+          </div>
         </motion.div>
       </div>
     </footer>
