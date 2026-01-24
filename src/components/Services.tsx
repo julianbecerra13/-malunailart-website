@@ -280,38 +280,22 @@ export default function Services() {
                   </div>
 
                   {/* CTA */}
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button
-                      asChild
-                      size="lg"
-                      className="bg-primary hover:bg-rose-dark text-white px-6 py-6 text-base gap-2"
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-primary hover:bg-rose-dark text-white px-6 py-6 text-base gap-2 w-fit"
+                  >
+                    <motion.a
+                      href="https://wa.me/31654149732?text=Hallo!%20Ik%20wil%20graag%20meer%20informatie%20over%20de%20nagelcursussen."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                     >
-                      <motion.a
-                        href="https://wa.me/31654149732?text=Hallo!%20Ik%20wil%20graag%20meer%20informatie%20over%20de%20nagelcursussen."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        <MessageCircle className="w-5 h-5" />
-                        Meer Informatie
-                      </motion.a>
-                    </Button>
-                    <Button
-                      asChild
-                      size="lg"
-                      variant="outline"
-                      className="border-white/30 text-white hover:bg-white/10 px-6 py-6 text-base gap-2"
-                    >
-                      <motion.a
-                        href="tel:+31654149732"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        Bel Ons
-                      </motion.a>
-                    </Button>
-                  </div>
+                      <MessageCircle className="w-5 h-5" />
+                      Meer Informatie
+                    </motion.a>
+                  </Button>
                 </motion.div>
               </div>
             </div>
