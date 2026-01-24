@@ -142,7 +142,7 @@ export default function Footer() {
               </a>
               {/* Facebook */}
               <a
-                href="https://www.facebook.com/profile.php?id=10001113969478"
+                href="https://www.facebook.com/profile.php?id=100066919891794"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
